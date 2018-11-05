@@ -15,4 +15,9 @@ public class RechnerTest {
     public void testAddition2() {
         assertEquals(6, (Rechner.addition(3, 3)));
     }
+
+    @Test
+    public void testAddition3() {
+        assertEquals(6, (Rechner.addition(4, 3)));
+    }
 }
