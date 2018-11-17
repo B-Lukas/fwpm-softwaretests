@@ -1,12 +1,12 @@
 stages:
-  - build
-  - test
+- build
+- test
 
 build:
   stage: build
   image: maven:3.6.0-jdk-11-slim
   script:
-    - mvn
+  - mvn
 
 junit:
   stage: test
@@ -16,3 +16,5 @@ junit:
   artifacts:
     reports:
       junit:
+      - target/surefire-reports/TEST-*.xml
+      - target/failsafe-reports/TEST-*.xml
