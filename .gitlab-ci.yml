@@ -2,17 +2,17 @@ stages:
 - build
 - test
 
+image: maven:3.6.0-jdk-11-slim
+
 build:
   stage: build
-  image: maven:3.6.0-jdk-11-slim
   script:
-  - mvn
+  - mvn clean compile
 
 junit:
   stage: test
-  image: maven:3.6.0-jdk-11-slim
   script:
-  - mvn verify
+  - mvn clean verify
   artifacts:
     reports:
       junit:
