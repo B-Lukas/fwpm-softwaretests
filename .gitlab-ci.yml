@@ -16,7 +16,7 @@ junit:
     reports:
       junit:
         - target/surefire-reports/TEST-*.xml
-        - target/failsafe-reports/TEST-*.xml
+
   
 
   
