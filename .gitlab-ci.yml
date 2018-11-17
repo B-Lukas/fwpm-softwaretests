@@ -15,4 +15,3 @@ junit:
   artifacts:
     reports:
       junit:
-        - target/surefire-reports/TEST-*.xml
