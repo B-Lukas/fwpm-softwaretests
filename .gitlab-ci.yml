@@ -8,7 +8,7 @@ build:
   script:
     - mvn
 
-java:
+junit:
   stage: test
   script:
   - mvn verify
