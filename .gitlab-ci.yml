@@ -12,7 +12,7 @@ build:
 junit:
   stage: test
   script:
-  - mvn clean verify
+  - mvn clean test
   artifacts:
     reports:
       junit:
