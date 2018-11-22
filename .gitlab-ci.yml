@@ -11,8 +11,8 @@ build:
 
 junit:
   stage: test
-  script:
   only: development
+  script:
   - mvn clean verify
   artifacts:
     reports:
