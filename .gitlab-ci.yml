@@ -11,7 +11,6 @@ build:
 
 junit:
   stage: test
-  only: master
   script:
   - mvn clean verify
   artifacts:
