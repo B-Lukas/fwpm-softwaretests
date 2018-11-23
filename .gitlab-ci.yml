@@ -21,3 +21,4 @@ junit:
       - target/surefire-reports/TEST-*.xml
   only:
     - development
+
