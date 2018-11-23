@@ -21,7 +21,7 @@ maven-build:
 
 
 docker-build:
-  stage: build-docker
+  stage: docker-build
   script:
     - 'docker build --pull -t $CI_REGISTRY_IMAGE .'
     - 'docker push $CI_REGISTRY_IMAGE'
