@@ -11,7 +11,7 @@ stages:
 maven-build:
   stage: maven-build
   script:
-    - 'docker run -v /builds/host-mc/Spring-CI-test:/root/app --name build-maven maven:3.5.0-jdk-8-alpine sh /root/app/maven-build.sh'
+    - 'docker run -v /builds/host-mc/Spring-CI-test:/root/app --name build-maven maven:latest sh /root/app/maven-build.sh'
     - 'cp target/*.jar app.jar'
     - 'docker rm -f build-maven'
   artifacts:
