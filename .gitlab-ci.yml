@@ -9,15 +9,17 @@ maven-build:
   stage: maven-build
   script:
     - 'mvn clean install -DskipTests'
+  allow_failure: true
 
 maven-test:
   stage: maven-test
   script:
     - 'mvn test'
+  allow_failure: true
 
 docker-build:
   stage: docker-build
   script:
-    - './mvn clean package -DskipTests=true dockerfile:build '
+    - 'mvn clean package -DskipTests=true dockerfile:build '
   only:
     - master
