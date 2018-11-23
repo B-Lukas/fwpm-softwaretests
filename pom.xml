@@ -41,7 +41,17 @@
                 <version>3.0.0-M1</version>
             </plugin>
             <plugin>
-                <!-- Plugin to build docker Images with Maven -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.0</version>
+                <configuration>
+                    <source>11</source>
+                    <target>11</target>
+                </configuration>
+
+            </plugin>
+            <!-- Plugin to build docker Images with Maven -->
+            <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.9</version>
