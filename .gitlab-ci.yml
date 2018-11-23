@@ -1,7 +1,4 @@
-image: docker:latest
-
-services:
-  - docker:dind
+image: maven:latest
 
 stages:
   - maven-build
