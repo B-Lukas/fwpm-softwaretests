@@ -43,20 +43,23 @@
             <plugin>
                 <!-- Plugin to build docker Images with Maven -->
                 <groupId>com.spotify</groupId>
-                <artifactId>docker-maven-plugin</artifactId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>1.4.9</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
-                    <imageName>pipelineDockerTest</imageName>
-                    <dockerDirectory>docker</dockerDirectory>
-                    <resources>
-                        <resource>
-                            <targetPath>/</targetPath>
-                            <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}.jar</include>
-                        </resource>
-                    </resources>
+                    <tag>${project.version}</tag>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
                 </configuration>
-        </plugin>
-    </plugins>
-</build>
-
-        </project>
+            </plugin>
+        </plugins>
+    </build>
+</project>
