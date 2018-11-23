@@ -5,10 +5,11 @@ services:
 
 stages:
   - maven-build
-  - maven-test
+ # - maven-test
   - docker-build
 
 maven-build:
+  stage: maven-build
   script:
     - 'docker run -v /builds/host-mc/Spring-CI-test:/root/app --name build-maven maven:3.5.0-jdk-8-alpine sh /root/app/maven-build.sh'
     - 'cp target/*.jar app.jar'
