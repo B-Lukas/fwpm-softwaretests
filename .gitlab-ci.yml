@@ -8,19 +8,16 @@ stages:
 maven-build:
   stage: maven-build
   script:
-    - 'mvn clean install'
-  artifacts:
-    paths:
-      - 'app.jar'
+    - 'mvn clean install -DskipTests'
 
 maven-test:
   stage: maven-test
   script:
-    - 'mvn test' #'mvn clean install -DskipTests'
+    - 'mvn test'
 
 docker-build:
   stage: docker-build
   script:
-    - './mvnw clean package -DskipTests=true dockerfile:build '
+    - './mvn clean package -DskipTests=true dockerfile:build '
   only:
     - master
