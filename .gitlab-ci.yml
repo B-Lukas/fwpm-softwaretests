@@ -1,24 +1,28 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
 stages:
-- build
-- test
+  - maven-build
+  - maven-test
+  - docker-build
 
-image: maven:3.6.0-jdk-11-slim
-
-build:
-  stage: build
+maven-build:
   script:
-  - mvn clean install -DskipTests
+    - 'docker run -v /builds/host-mc/Spring-CI-test:/root/app --name build-maven maven:3.5.0-jdk-8-alpine sh /root/app/maven-build.sh'
+    - 'cp target/*.jar app.jar'
+    - 'docker rm -f build-maven'
+  artifacts:
+    paths:
+      - 'app.jar'
+# mvn clean install -DskipTests
+
+
+docker-build:
+  stage: build-docker
+  script:
+    - 'docker build --pull -t $CI_REGISTRY_IMAGE .'
+    - 'docker push $CI_REGISTRY_IMAGE'
   only:
     - master
-
-junit:
-  stage: test
-  script:
-  - mvn clean verify
-  artifacts:
-    reports:
-      junit:
-      - target/surefire-reports/TEST-*.xml
-  only:
-    - development
-

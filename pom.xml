@@ -32,19 +32,11 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>PipelineTest.Main</mainClass>
+                            <mainClass>PipelineTest.Greeter</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
             </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.7.0</version>
-                    <configuration>
-                        <compilerVersion>11</compilerVersion>
-                    </configuration>
-                </plugin>
         </plugins>
     </build>
 
