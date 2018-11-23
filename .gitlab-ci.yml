@@ -20,6 +20,6 @@ maven-test:
 docker-build:
   stage: docker-build
   script:
-    - 'mvn clean package -DskipTests=true dockerfile:build '
+    - 'mvn clean package -DskipTests=true dockerfile:build'
   only:
     - master
