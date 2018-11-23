@@ -8,16 +8,12 @@ build:
   stage: build
   script:
   - mvn clean install -DskipTests
-  only:
-    - master
 
 junit:
   stage: test
   script:
-  - mvn clean verify
+  - mvn clean test
   artifacts:
     reports:
       junit:
       - target/surefire-reports/TEST-*.xml
-  only:
-    - development
